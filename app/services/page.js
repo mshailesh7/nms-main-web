@@ -8,28 +8,28 @@ export default function Services() {
   const services = [
     {
       title: "ESG Reporting",
-      icon: "/images/esg-services.gif",
+      icon: "/images/esg-services.GIF",
       startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/esg-reporting", 
     },
     {
       title: "GHG Reporting",
-      icon: "/images/ghg-services.gif",
+      icon: "/images/ghg-services.GIF",
       startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/ghg-reporting", 
     },
     {
       title: "Carbon Credit",
-      icon: "/images/carbon-credit-services.gif",
+      icon: "/images/carbon-credit-services.GIF",
       startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/carbon-credit", 
     },
     {
       title: "Carbon Trading",
-      icon: "/images/carbon-trading-services.gif",
+      icon: "/images/carbon-trading-services.GIF",
       buyServiceText: "Coming Soon...",
       link: "/services", 
     },

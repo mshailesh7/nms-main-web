@@ -8,7 +8,7 @@ export default function ServiceHomePage() {
   const services = [
     {
       title: "ESG Reporting",
-      icon: "/images/esg-services.gif",
+      icon: "/images/esg-services.GIF",
       startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/esg-reporting", 
