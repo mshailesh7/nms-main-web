@@ -59,6 +59,7 @@ export default function Services() {
                     alt={`${service.title} Icon`}
                     width={1920} 
                     height={1080} 
+                    unoptimized
                     className="w-full h-full object-contain rounded-lg"
                     priority={index < 2} 
                     loading={index >= 2 ? "lazy" : "eager"} 

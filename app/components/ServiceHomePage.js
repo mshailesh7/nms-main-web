@@ -59,7 +59,8 @@ export default function ServiceHomePage() {
                     width={1920} 
                     height={1080} 
                     className="w-full h-full object-contain rounded-lg"
-                    priority={index < 2} 
+                    priority={index < 2}
+                    unoptimized 
                     loading={index >= 2 ? "lazy" : "eager"} 
                   />
                 </div>

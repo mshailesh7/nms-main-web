@@ -97,10 +97,11 @@ export default function About() {
               <Image
                 src={phaseDetails[selectedPhase].image}
                 alt={`${selectedPhase} phase`}
-                width={1920} // Set width to avoid layout shift
-                height={1080} // Set height for consistency
+                width={1920} 
+                height={1080}
+                unoptimized
                 className="w-full h-48 md:h-64 object-cover rounded-xl transition-all duration-300 group-hover:opacity-50"
-                priority={selectedPhase === "Ideation"} // Load first phase faster
+                priority={selectedPhase === "Ideation"} 
               />
               <div className="absolute inset-0 flex flex-col bg-black/70 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 text-center">
