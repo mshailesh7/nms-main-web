@@ -3,19 +3,41 @@
 import Link from "next/link";
 import React from "react";
 import { FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { useRouter } from "next/navigation"; // Import useRouter
+
+const scrollToServicesDesktop = () => {
+  const servicesSection = document.getElementById("services");
+  if (servicesSection) {
+    servicesSection.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+  } else {
+    window.location.href = "/services";
+  }
+};
+
+const scrollToServicesMobile = () => {
+  const servicesSection = document.getElementById("services");
+  if (servicesSection) {
+    servicesSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "center",
+    });
+  } else {
+    window.location.href = "/services";
+  }
+};
 
 export default function Footer() {
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById("services");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-      });
-    } else {
-      window.location.href = "/services";
-    }
+  const router = useRouter(); // Initialize useRouter
+
+  const handleHomeClick = (e) => {
+    e.preventDefault(); // Prevent default navigation behavior
+    router.push("/"); // Navigate to the home page
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
   };
 
   return (
@@ -24,10 +46,15 @@ export default function Footer() {
       <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 text-center md:text-left">
         {/* Recently Posted Blogs Section */}
         <div className="lg:col-span-3 md:col-span-1">
-          <h3 className="font-semibold text-[#102F17] text-lg mb-4">Recently Posted Blogs</h3>
+          <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+            Recently Posted Blogs
+          </h3>
           <div className="space-y-4">
             {[1, 2].map((index) => (
-              <div key={index} className="flex gap-4 items-center justify-center md:justify-start">
+              <div
+                key={index}
+                className="flex gap-4 items-center justify-center md:justify-start"
+              >
                 <img
                   src="/images/blog.png"
                   alt={`Blog ${index}`}
@@ -35,7 +62,9 @@ export default function Footer() {
                 />
                 <div>
                   <h4 className="font-medium">Blog {index}</h4>
-                  <p className="text-sm text-gray-600 line-clamp-2">Lorem ipsum dolor sit amet...</p>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    Lorem ipsum dolor sit amet...
+                  </p>
                 </div>
               </div>
             ))}
@@ -44,13 +73,23 @@ export default function Footer() {
 
         {/* Navigation Links */}
         <div className="lg:col-span-2 md:col-span-1">
-          <h3 className="font-semibold text-[#102F17] text-lg mb-4">Navigation</h3>
+          <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+            Navigation
+          </h3>
           <ul className="space-y-2">
             <li className="hover:text-green-600 transition-colors">
-              <Link href="/">Home</Link>
+              <a href="/" onClick={handleHomeClick}>Home</a>
             </li>
             <li className="hover:text-green-600 transition-colors">
-              <Link href="/services">Services</Link>
+              <a
+                href="/services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToServicesDesktop();
+                }}
+              >
+                Services
+              </a>
             </li>
             <li className="hover:text-green-600 transition-colors">
               <Link href="/blog">Blog</Link>
@@ -63,7 +102,9 @@ export default function Footer() {
 
         {/* Services Links */}
         <div className="lg:col-span-2 md:col-span-1">
-          <h3 className="font-semibold text-[#102F17] text-lg mb-4">Services</h3>
+          <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+            Services
+          </h3>
           <ul className="space-y-2">
             <li className="hover:text-green-600 transition-colors">
               <Link href="/services/esg-reporting">ESG Reporting</Link>
@@ -120,12 +161,20 @@ export default function Footer() {
       {/* Copyright Section */}
       <div className="mt-8 pt-4 border-t border-gray-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <p className="text-gray-600 text-sm">© 2023 Te-Owo All Rights Reserved.</p>
+          <p className="text-gray-600 text-sm">
+            © 2023 Te-Owo All Rights Reserved.
+          </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="/terms" className="text-sm text-gray-600 hover:text-green-600">
+            <Link
+              href="/terms"
+              className="text-sm text-gray-600 hover:text-green-600"
+            >
               Term Of Service
             </Link>
-            <Link href="/policy" className="text-sm text-gray-600 hover:text-green-600">
+            <Link
+              href="/policy"
+              className="text-sm text-gray-600 hover:text-green-600"
+            >
               Policy Service
             </Link>
           </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Head from "next/head";
 import { FaLeaf } from "react-icons/fa";
 
 const plans = [
@@ -16,7 +15,7 @@ const plans = [
       "Basic multi-national ESG reporting support",
     ],
     buttonText: "Buy Basic",
-    color: "bg-[#20732C]", // Basic Tier Color
+    color: "bg-[#20732C]", 
   },
   {
     title: "Standard Tier: Sustainability Growth",
@@ -31,7 +30,7 @@ const plans = [
       "Multi-national ESG reporting and compliance management for up to 3 countries",
     ],
     buttonText: "Buy Standard",
-    color: "bg-[#295922]", // Standard Tier Color
+    color: "bg-[#295922]", 
   },
   {
     title: "Premium Tier: Sustainability Leadership",
@@ -49,18 +48,18 @@ const plans = [
       "Impact assessment and reporting for global operations",
     ],
     buttonText: "Buy Premium",
-    color: "bg-[#003F31]", // Premium Tier Color
+    color: "bg-[#003F31]", 
   },
 ];
 
 export default function Pricing() {
   return (
     <div className="bg-[#F1F1F1] content-item py-10">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-[#102F17]">
+      <div className="text-center px-2 mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-[#102F17]">
           Choose your Sustainability Path
         </h1>
-        <p className="text-xl tracking-wider px-2 font-medium text-[#102F17]">
+        <p className="text-lg md:text-xl tracking-wide font-medium text-[#102F17]">
           Enabling companies to transition towards a greener future
         </p>
       </div>

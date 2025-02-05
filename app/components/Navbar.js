@@ -1,14 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Home, Briefcase, Newspaper, Info, Briefcase as WorkIcon } from "lucide-react";
+import {
+  Home,
+  Briefcase,
+  Newspaper,
+  Info,
+  Briefcase as WorkIcon,
+  TreePalmIcon,
+} from "lucide-react";
 import { FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import useRouter
 
-const scrollToServices = () => {
+const scrollToServicesDesktop = () => {
   const servicesSection = document.getElementById("services");
   if (servicesSection) {
     servicesSection.scrollIntoView({
@@ -20,19 +28,41 @@ const scrollToServices = () => {
     window.location.href = "/services";
   }
 };
-
+const scrollToServicesMobile = () => {
+  const servicesSection = document.getElementById("services");
+  if (servicesSection) {
+    servicesSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "center",
+    });
+  } else {
+    window.location.href = "/services";
+  }
+};
 export default function Navbar({ currentPath }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     setIsSidebarOpen((prev) => !prev);
-  };
+  }, []);
 
-  const closeSidebar = () => {
+  const closeSidebar = useCallback(() => {
     setIsSidebarOpen(false);
-  };
+  }, []);
 
-  const isActive = (path) => currentPath === path;
+  // Memoize the active class based on currentPath
+  const activeClass = useMemo(
+    () => (path) => currentPath === path ? "font-bold scale-110" : "",
+    [currentPath]
+  );
+
+  const handleHomeClick = (e) => {
+    e.preventDefault(); // Prevent default navigation behavior
+    router.push("/"); // Navigate to the home page
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
+  };
 
   return (
     <header className="bg-[#F1F1F1] shadow-sm">
@@ -55,9 +85,10 @@ export default function Navbar({ currentPath }) {
         <nav className="hidden navbar-md:flex ml-24 font-medium text-xl space-x-10 text-[#102F17]">
           <Link
             href="/"
-            className={`hover:font-bold hover:scale-110 transition-all ${
-              isActive("/") ? "font-bold scale-110" : ""
-            }`}
+            onClick={handleHomeClick} // Handle home click for navigation and scroll
+            className={`hover:font-bold hover:scale-110 transition-all ${activeClass(
+              "/"
+            )}`}
           >
             Home
           </Link>
@@ -65,9 +96,11 @@ export default function Navbar({ currentPath }) {
             href="/services"
             onClick={(e) => {
               e.preventDefault();
-              scrollToServices();
+              scrollToServicesDesktop();
             }}
-            className="hover:font-semibold hover:scale-110 transition-all"
+            className={`hover:font-bold hover:scale-110 transition-all ${activeClass(
+              "/services"
+            )}`}
           >
             Services
           </Link>
@@ -79,30 +112,45 @@ export default function Navbar({ currentPath }) {
           </a>
           <Link
             href="/about"
-            className={`hover:font-bold hover:scale-110 transition-all ${
-              isActive("/about") ? "font-bold scale-110" : ""
-            }`}
+            className={`hover:font-bold hover:scale-110 transition-all ${activeClass(
+              "/about"
+            )}`}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className={`hover:font-bold hover:scale-110 transition-all ${
-              isActive("/contact") ? "font-bold scale-110" : ""
-            }`}
+            className={`hover:font-bold hover:scale-110 transition-all ${activeClass(
+              "/contact"
+            )}`}
           >
             Contact
+          </Link>
+          <Link
+            href="/sustain360"
+            className={`font-bold text-red-500 flex items-start gap-1 ${activeClass(
+              "/sustain360"
+            )}`}
+          >
+            Sustain360
+            <motion.span
+              className="text-xs text-white bg-red-500 px-1.5 py-0.5 rounded-md font-semibold"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1.1, repeat: Infinity }}
+            >
+              Beta
+            </motion.span>
           </Link>
         </nav>
 
         {/* Work With Us Button */}
-        {/* {!isSidebarOpen && (
+        {!isSidebarOpen && (
           <div className="hidden navbar-md:flex items-center space-x-4">
-            <Button className="bg-orange-500 font-medium text-xl text-white hover:bg-white hover:text-orange-500 transition duration-300">
+            <Button className="bg-orange-900 font-medium text-xl text-white hover:bg-white hover:text-orange-500 transition duration-300">
               <Link href="/contact">Work With Us</Link>
             </Button>
           </div>
-        )} */}
+        )}
 
         {/* Mobile Menu Toggle */}
         {!isSidebarOpen && (
@@ -146,19 +194,26 @@ export default function Navbar({ currentPath }) {
             <div className="space-y-6">
               <Link
                 href="/"
+                onClick={handleHomeClick} // Handle home click for navigation and scroll
                 className={`flex items-center text-xl ${
-                  isActive("/") ? "text-orange-600 font-bold" : "text-[#102F17]"
-                } hover:text-orange-600`}
+                  activeClass("/")
+                    ? "text-orange-600 font-bold"
+                    : "text-[#102F17]"
+                }`}
               >
                 <Home className="mr-2" /> Home
               </Link>
               <Link
                 href="/services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToServicesMobile();
+                }}
                 className={`flex items-center text-xl ${
-                  isActive("/services")
+                  activeClass("/services")
                     ? "text-orange-600 font-bold"
                     : "text-[#102F17]"
-                } hover:text-orange-600`}
+                }`}
               >
                 <Briefcase className="mr-2" /> Services
               </Link>
@@ -171,20 +226,32 @@ export default function Navbar({ currentPath }) {
               <Link
                 href="/about"
                 className={`flex items-center text-xl ${
-                  isActive("/about") ? "text-orange-600 font-bold" : "text-[#102F17]"
-                } hover:text-orange-600`}
+                  activeClass("/about")
+                    ? "text-orange-600 font-bold"
+                    : "text-[#102F17]"
+                }`}
               >
                 <Info className="mr-2" /> About
               </Link>
               <Link
                 href="/contact"
                 className={`flex items-center text-xl ${
-                  isActive("/contact")
+                  activeClass("/contact")
                     ? "text-orange-600 font-bold"
                     : "text-[#102F17]"
-                } hover:text-orange-600`}
+                }`}
               >
                 <WorkIcon className="mr-2" /> Contact
+              </Link>
+              <Link
+                href="/sustain360"
+                className={`flex items-center text-xl ${
+                  activeClass("/sustain360")
+                    ? "text-orange-600 font-bold"
+                    : "text-[#102F17]"
+                }`}
+              >
+                <TreePalmIcon className="mr-2" /> Sustain360
               </Link>
             </div>
           </div>

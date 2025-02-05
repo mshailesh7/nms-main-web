@@ -21,7 +21,9 @@ export default function ContactForm() {
             placeholder="Enter your first name here"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className={`w-full p-3 rounded-md ${firstName ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              firstName ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] border-2 focus:outline-none`}
           />
         </div>
         <div>
@@ -33,7 +35,9 @@ export default function ContactForm() {
             placeholder="Enter your last name here"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className={`w-full p-3 rounded-md ${lastName ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              lastName ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] border-2 focus:outline-none`}
           />
         </div>
         <div>
@@ -45,7 +49,9 @@ export default function ContactForm() {
             placeholder="Enter your company name here"
             value={companyName}
             onChange={(e) => setCompanyName(e.target.value)}
-            className={`w-full p-3 rounded-md ${companyName ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              companyName ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] border-2 focus:outline-none`}
           />
         </div>
         <div>
@@ -57,7 +63,9 @@ export default function ContactForm() {
             placeholder="Enter your company email here"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`w-full p-3 rounded-md ${email ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              email ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] border-2 focus:outline-none`}
           />
         </div>
         <div>
@@ -69,7 +77,9 @@ export default function ContactForm() {
             placeholder="Enter your phone no. here"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className={`w-full p-3 rounded-md ${phone ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              phone ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] border-2 focus:outline-none`}
           />
         </div>
         <div>
@@ -79,39 +89,48 @@ export default function ContactForm() {
           <div className="space-y-2">
             <div>
               <input type="checkbox" id="option1" className="mr-2" />
-              <label htmlFor="option1">Option 1</label>
+              <label htmlFor="option1">
+                Need clarity on Scope 1, Scope 2, and Scope 3 emissions.
+              </label>
             </div>
             <div>
-              <input
-                type="checkbox"
-                id="option2"
-                className="mr-2 bg-green-900"
-              />
-              <label htmlFor="option2">Option 2</label>
+              <input type="checkbox" id="option2" className="mr-2" />
+              <label htmlFor="option2">
+                Looking to make my company operations adhere to global
+                sustainability standards.
+              </label>
             </div>
             <div>
               <input type="checkbox" id="option3" className="mr-2 peer" />
-              <label htmlFor="option3">Option 3</label>
+              <label htmlFor="option3">
+                Need assistance mapping material topics to the GRI.
+              </label>
             </div>
             <div>
               <input type="checkbox" id="option4" className="mr-2 peer" />
-              <label htmlFor="option4">Option 4</label>
+              <label htmlFor="option4">
+                Considering purchasing/retiring carbon credits to offset my
+                company's emissions.
+              </label>
             </div>
             <div>
               <input type="checkbox" id="option5" className="mr-2 peer" />
-              <label htmlFor="option5">Option 5</label>
+              <label htmlFor="option5">
+                Want to understand how to optimize my operational efficiency
+                by leveraging my carbon data.
+              </label>
             </div>
           </div>
         </div>
         <div>
-          <label className="block text-lg font-bold mb-2">
-            Tell us more!
-          </label>
+          <label className="block text-lg font-bold mb-2">Tell us more!</label>
           <textarea
             placeholder="Write your message..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className={`w-full p-3 rounded-md ${message ? "bg-white border-green-800" : "bg-[#B0C4B1]"} placeholder-[#102F17] h-32 border-2 focus:outline-none`}
+            className={`w-full p-3 rounded-md ${
+              message ? "bg-white border-green-800" : "bg-[#B0C4B1]"
+            } placeholder-[#102F17] h-32 border-2 focus:outline-none`}
           ></textarea>
         </div>
 

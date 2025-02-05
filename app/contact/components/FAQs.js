@@ -13,11 +13,11 @@ export default function FAQs() {
           <AccordionItem value="item-1">
             <AccordionTrigger className="flex items-center text-left text-[#102F17]">
               <FaLeaf className="text-[#102F17] mr-2" />
-              Who are we?
+              What is carbon offsetting?
             </AccordionTrigger>
             <AccordionContent>
               <p className="text-[#102F17]">
-                We are a company dedicated to helping organizations achieve sustainability goals through carbon offsetting, environmental strategies, and carbon credits.
+              Carbon offsetting is compensating for your carbon emissions by funding projects that reduce or remove an equivalent amount of CO2 from the atmosphere, like reforestation or renewable energy initiatives.
               </p>
             </AccordionContent>
           </AccordionItem>
@@ -25,11 +25,11 @@ export default function FAQs() {
           <AccordionItem value="item-2">
             <AccordionTrigger className="flex items-center text-left text-[#102F17]">
               <FaLeaf className="text-[#102F17] mr-2" />
-              What is the Carbon Credit Market?
+              What is a carbon credit market?
             </AccordionTrigger>
             <AccordionContent>
               <p className="text-[#102F17]">
-                The carbon credit market allows companies and individuals to purchase carbon credits to offset their emissions. These credits are linked to projects that reduce or remove carbon from the atmosphere.
+              A carbon credit market is a trading system where carbon credits (certificates representing 1 ton of CO2 reduced/removed) can be bought and sold. These carbon credits can then be retired to offset the emissions by an organization.
               </p>
             </AccordionContent>
           </AccordionItem>
@@ -37,11 +37,11 @@ export default function FAQs() {
           <AccordionItem value="item-3">
             <AccordionTrigger className="flex items-center text-left text-[#102F17]">
               <FaLeaf className="text-[#102F17] mr-2" />
-              Why should you De-Carbonize?
+              Why should you de carbonize?
             </AccordionTrigger>
             <AccordionContent>
               <p className="text-[#102F17]">
-                De-carbonizing helps mitigate climate change, reduces the negative environmental impact of your business, and can lead to long-term savings through energy efficiency and sustainable practices.
+              Decarbonizing will allow you to reduce operational costs while meeting growing regulatory standards. As carbon regulations evolve, beginning your de-carbonization journey early will prepare you for future carbon pricing.
               </p>
             </AccordionContent>
           </AccordionItem>
@@ -49,11 +49,11 @@ export default function FAQs() {
           <AccordionItem value="item-4">
             <AccordionTrigger className="flex items-center text-left text-[#102F17]">
               <FaLeaf className="text-[#102F17] mr-2" />
-              How does being Carbon Net Zero benefit me?
+              How does being Carbon neutral benefit me?
             </AccordionTrigger>
             <AccordionContent>
               <p className="text-[#102F17]">
-                Achieving Carbon Net Zero reduces your environmental impact, improves your brand's reputation, and can attract more customers who are environmentally conscious. It also prepares your business for future sustainability regulations.
+              Being Carbon neutral will enhance your brand value and solidify customer trust giving you a competitive advantage in an environmentally conscious market. Mitigating risks against future regulations and the potential of new business opportunities in sustainability markets are other major benefits of going carbon neutral.
               </p>
             </AccordionContent>
           </AccordionItem>

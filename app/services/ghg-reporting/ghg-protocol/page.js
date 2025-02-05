@@ -3,7 +3,8 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function BRSR() {
+
+export default function GHGProtocol() {
   const overviewRef = useRef(null);
   const keyBenefitsRef = useRef(null);
   const servicesRef = useRef(null);
@@ -23,7 +24,7 @@ export default function BRSR() {
       ref: overviewRef,
       icon: "/images/overview-icon.svg",
       content:
-        "This framework mandates that Indian companies provide quantifiable metrics on various sustainability-related factors, including respect for human rights and environmental protection.",
+        "The GHG Protocol is the most widely used international accounting tool for government and business leaders to understand, quantify, and manage greenhouse gas emissions. It provides standards and guidance for companies and cities to measure, manage, and report their carbon footprints.",
     },
     {
       id: "keyBenefits",
@@ -32,12 +33,9 @@ export default function BRSR() {
       icon: "/images/key-benefits-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li>Improved ESG Performance</li>
-          <li>Competitive Advantage</li>
-          <li>Improved Stakeholder Engagement</li>
-          <li>Cost Savings</li>
-          <li>Investor Confidence</li>
-          <li>Long Term Value Creation</li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       ),
     },
@@ -48,10 +46,9 @@ export default function BRSR() {
       icon: "/images/services-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li>Data Collection and Management</li>
-          <li>Gap Analysis and Improvement</li>
-          <li>Comprehensive Reporting</li>
-          <li>Continuous Support</li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       ),
     },
@@ -59,19 +56,19 @@ export default function BRSR() {
 
   return (
     <>
-      <title>BRSR</title>
-      <div className="flex flex-col items-center py-10 justify-center min-h-screen px-6 md:px-10">
+      <title>GHG-Protocol</title>
+      <div className="flex flex-col py-10 items-center justify-center min-h-screen px-6 md:px-10">
         <div className="w-full max-w-7xl bg-white p-6 md:p-10 rounded-lg shadow-lg flex flex-col md:flex-row">
           {/* Left Section: Navigation Buttons */}
           <div className="flex-1 flex flex-col items-start">
             <h1 className="text-3xl md:text-4xl font-bold text-[#102F17]">
-              BRSR
+              GHG Protocol
             </h1>
             <h2 className="text-xl md:text-2xl font-bold text-[#102F17] mt-4">
-              (Business Responsibility & Sustainability Reporting)
+              (Greenhouse Gas Protocol)
             </h2>
-            <p className="text-base md:text-xl text-[#102F17] font-medium mt-6">
-              ESG REPORTING
+            <p className="text-base md:text-xl font-medium text-[#102F17] mt-6">
+              GHG REPORTING
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               {sections.map((section) => (
@@ -116,7 +113,7 @@ export default function BRSR() {
                     {section.label}
                   </h3>
                 </div>
-                <div className="text-[#102F17] text-sm font-medium md:text-lg leading-relaxed">
+                <div className="text-[#102F17] font-medium text-sm md:text-lg leading-relaxed">
                   {section.content}
                 </div>
               </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { useSpring, animated } from "react-spring";
 
 export default function CarbonTrading() {
@@ -69,7 +70,7 @@ export default function CarbonTrading() {
        {/* Content Section */}
        <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
          {/* Heading */}
-         <h2 className="text-3xl font-bold mb-6 text-gray-800">
+         <h2 className="text-xl md:text-2xl font-bold mb-6 text-gray-800">
            Key benefits to our clients:
          </h2>
 
@@ -86,7 +87,7 @@ export default function CarbonTrading() {
                        alt="Left icon"
                        className="h-6 w-6"
                      />
-                     <span className="text-[#102F17] text-xl font-bold">
+                     <span className="text-[#102F17] text-sm md:text-lg font-bold">
                        {benefit.text}
                      </span>
                    </div>
@@ -103,7 +104,7 @@ export default function CarbonTrading() {
                  </div>
                  {/* Accordion Text */}
                  {activeIndex === index && (
-                   <div className="mt-2 pl-10 text-[#102F17] font-medium text-lg">
+                   <div className="mt-2 pl-10 text-[#102F17] font-medium text-sm md:text-lg">
                      {benefit.details}
                    </div>
                  )}

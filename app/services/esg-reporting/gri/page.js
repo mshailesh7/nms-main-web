@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function GRI() {
   const overviewRef = useRef(null);
@@ -58,7 +59,7 @@ export default function GRI() {
   return (
     <>
       <title>GRI</title>
-      <div className="flex flex-col items-center justify-center min-h-screen px-6 md:px-10">
+      <div className="flex flex-col py-10 items-center justify-center min-h-screen px-6 md:px-10">
         <div className="w-full max-w-7xl bg-white p-6 md:p-10 rounded-lg shadow-lg flex flex-col md:flex-row">
           {/* Left Section: Navigation Buttons */}
           <div className="flex-1 flex flex-col items-start">
@@ -83,6 +84,12 @@ export default function GRI() {
                   {section.label}
                 </button>
               ))}
+              <Link
+                href="/contact"
+                className=" bg-orange-900 px-4 py-2 md:px-6 md:py-3 text-white font-bold rounded-lg border border-green-900 transition"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
 

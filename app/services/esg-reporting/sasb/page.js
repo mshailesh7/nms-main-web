@@ -3,7 +3,8 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export default function BRSR() {
+
+export default function SASB() {
   const overviewRef = useRef(null);
   const keyBenefitsRef = useRef(null);
   const servicesRef = useRef(null);
@@ -23,7 +24,7 @@ export default function BRSR() {
       ref: overviewRef,
       icon: "/images/overview-icon.svg",
       content:
-        "This framework mandates that Indian companies provide quantifiable metrics on various sustainability-related factors, including respect for human rights and environmental protection.",
+        "At NatureMark Systems, we help companies disclose relevant sustainability information to their investors using SASB Standards. These standards are designed for 77 industries, identifying and assessing sustainability risk parameters and opportunities that affect cash flows, access to finance, and cost of capital.",
     },
     {
       id: "keyBenefits",
@@ -32,12 +33,9 @@ export default function BRSR() {
       icon: "/images/key-benefits-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li>Improved ESG Performance</li>
-          <li>Competitive Advantage</li>
-          <li>Improved Stakeholder Engagement</li>
-          <li>Cost Savings</li>
-          <li>Investor Confidence</li>
-          <li>Long Term Value Creation</li>
+          <li>Consistent Data</li>
+          <li>Focused Disclosure</li>
+          <li>Professional Expertise</li>
         </ul>
       ),
     },
@@ -48,10 +46,9 @@ export default function BRSR() {
       icon: "/images/services-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li>Data Collection and Management</li>
-          <li>Gap Analysis and Improvement</li>
-          <li>Comprehensive Reporting</li>
-          <li>Continuous Support</li>
+          <li>Financial Data Analysis</li>
+          <li>Performance Metrics Normalization</li>
+          <li>SASB Standards Application</li>
         </ul>
       ),
     },
@@ -59,18 +56,18 @@ export default function BRSR() {
 
   return (
     <>
-      <title>BRSR</title>
-      <div className="flex flex-col items-center py-10 justify-center min-h-screen px-6 md:px-10">
+      <title>SASB</title>
+      <div className="flex flex-col py-10 items-center justify-center min-h-screen px-6 md:px-10">
         <div className="w-full max-w-7xl bg-white p-6 md:p-10 rounded-lg shadow-lg flex flex-col md:flex-row">
           {/* Left Section: Navigation Buttons */}
           <div className="flex-1 flex flex-col items-start">
             <h1 className="text-3xl md:text-4xl font-bold text-[#102F17]">
-              BRSR
+              SASB
             </h1>
             <h2 className="text-xl md:text-2xl font-bold text-[#102F17] mt-4">
-              (Business Responsibility & Sustainability Reporting)
+              (Sustainability Accounting Standards Board)
             </h2>
-            <p className="text-base md:text-xl text-[#102F17] font-medium mt-6">
+            <p className="text-base md:text-xl font-medium text-[#102F17] mt-6">
               ESG REPORTING
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -116,7 +113,7 @@ export default function BRSR() {
                     {section.label}
                   </h3>
                 </div>
-                <div className="text-[#102F17] text-sm font-medium md:text-lg leading-relaxed">
+                <div className="text-[#102F17] font-medium text-sm md:text-lg leading-relaxed">
                   {section.content}
                 </div>
               </motion.div>

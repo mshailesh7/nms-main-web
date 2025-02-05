@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
+import Image from "next/image";
 
 export default function CarbonCredit() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -91,9 +92,11 @@ export default function CarbonCredit() {
 
         {/* Header Section */}
         <div className="relative z-10">
-          <img
+          <Image
             src="/images/carbon-credit/credit-header.svg"
             alt="Background with gears and nature"
+            width={1200}
+            height={400}
             className="w-full object-cover"
           />
         </div>
@@ -101,24 +104,25 @@ export default function CarbonCredit() {
         {/* Content Section */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
           {/* Heading */}
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 text-gray-800">
             Key benefits to our clients:
           </h2>
 
           {/* Benefits List */}
-          <ul className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => {
               const bounce = getBounceAnimation(index);
               return (
-                <li key={index} className="flex flex-col space-y-2">
-                  <div className="flex justify-between items-center space-x-4">
+                <div key={index} className="p-4 bg-white rounded-lg shadow-md">
+                  <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-4">
-                      <img
+                      <Image
                         src="/images/ghg-reporting/dropdown-leaf.svg"
                         alt="Left icon"
-                        className="h-6 w-6"
+                        width={24}
+                        height={24}
                       />
-                      <span className="text-[#102F17] text-xl font-bold">
+                      <span className="text-[#102F17] text-sm md:text-lg font-bold">
                         {benefit.text}
                       </span>
                     </div>
@@ -126,42 +130,47 @@ export default function CarbonCredit() {
                       onClick={() => handleCoinClick(index)}
                       style={bounce}
                     >
-                      <img
+                      <Image
                         src="/images/ghg-reporting/dropdown-coin.svg"
                         alt="Right icon"
-                        className="w-12 object-cover h-12 cursor-pointer"
+                        width={48}
+                        height={48}
+                        className="cursor-pointer"
                       />
                     </animated.button>
                   </div>
-                  {/* Accordion Text */}
                   {activeIndex === index && (
-                    <div className="mt-2 pl-10 text-[#102F17] font-medium text-lg">
+                    <p className="mt-2 text-[#102F17] font-medium text-sm md:text-lg">
                       {benefit.details}
-                    </div>
+                    </p>
                   )}
-                </li>
+                </div>
               );
             })}
-          </ul>
+          </div>
 
           {/* Logos Section */}
           <div className="mt-20 pb-20 flex justify-center items-center">
             <div className="flex flex-wrap gap-6 justify-center">
               <div className="flex flex-col py-6 rounded-lg shadow-md bg-white items-center justify-between w-full sm:w-64">
-                <img
+                <Image
                   src="/images/carbon-credit/credit-cctsfinal.gif"
                   alt="CCTS Logo"
-                  className="w-32 sm:w-48 mb-4"
+                  width={192}
+                  height={192}
+                  className="mb-4"
                 />
                 <span className="text-center text-lg sm:text-xl mt-auto font-bold">
                   CCTS
                 </span>
               </div>
               <div className="flex flex-col py-6 rounded-lg shadow-md bg-white items-center justify-between w-full sm:w-64">
-                <img
+                <Image
                   src="/images/carbon-credit/credit-verra.gif"
                   alt="Verra Logo"
-                  className="w-32 sm:w-48 mb-4"
+                  width={192}
+                  height={192}
+                  className="mb-4"
                 />
                 <span className="text-center text-lg sm:text-xl mt-auto font-bold">
                   Verra Registration and Consultation
