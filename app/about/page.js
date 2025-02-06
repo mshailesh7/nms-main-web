@@ -1,48 +1,113 @@
 "use client";
-import { useState, useCallback } from "react";
-import { GoChevronRight } from "react-icons/go";
-import Image from "next/image"; // Import optimized Next.js Image component
+import { useState, useEffect, useCallback } from "react";
+import { GoChevronRight, GoChevronLeft } from "react-icons/go";
+import Image from "next/image";
 
 export default function About() {
   const [selectedPhase, setSelectedPhase] = useState("Ideation");
+  const [descriptionIndex, setDescriptionIndex] = useState(0);
 
   const phaseDetails = {
     Ideation: {
       image: "/images/esg-services.gif",
-      year: "2023",
-      month: "May",
-      description:
-        "The idea for ArborTag is born during a Healthcare Innovation Hackathon by MSc. Biomedical Sciences students Saif Hasmani and Shivakiran Alva. They aim to solve challenges in tree data collection for carbon.",
+      details: [
+        {
+          year: "2023",
+          month: "May",
+          description:
+            "The idea for ArborTag is born during a Healthcare Innovation Hackathon by MSc. Biomedical Sciences students Saif Hasmani and Shivakiran Alva. They aim to solve challenges in tree data collection for carbon measurement.",
+        },
+        {
+          year: "2023",
+          month: "June-July",
+          description:
+            "ArborTag undergoes initial pre-incubation support from DST-TEC,IIC, and AIC-Nitte, developing the concept further with expert guidance and filing a patent for their technology.",
+        },
+      ],
     },
     Conceptualization: {
-      image: "/images/ghg-services.gif",
-      year: "2023",
-      month: "August",
-      description:
-        "NatureMark Systems is officially incorporated under DPIIT, Government of India, with a focus on carbon sequestration analysis and carbon credit verification, expanding ArborTag's technology into a broader corporate sustainability framework.",
+      image: "/images/ghg-services.GIF",
+      details: [
+        {
+          year: "2023",
+          month: "August",
+          description:
+            "NatureMark Systems is officially incorporated under DPIIT, Government of India, with a focus on carbon sequestration analysis and carbon credit verification, expanding ArborTag's technology into a broader corporate sustainability framework.",
+        },
+        {
+          year: "2023",
+          month: "October",
+          description:
+            "The company is selected for Wadhwani Lift off Program , marking the beginning of its incubation journey. This stage emphasizes business model development and exploring the market for carbon reporting solutions. ",
+        },
+        {
+          year: "2023",
+          month: "November",
+          description:
+            "NatureMark joins a two-month Agripreneurship Program at NaaVic Agri-Business Incubation Center, ICAR-Nivedi, further refining its product and service offerings.",
+        },
+      ],
     },
     Formation: {
-      image: "/images/carbon-credit-services.gif",
-      year: "2024",
-      month: "January",
-      description:
-        "The first ArborTag prototype is successfully tested, signaling a major product milestone for NatureMark Systems.",
+      image: "/images/carbon-credit-services.GIF",
+      details: [
+        {
+          year: "2024",
+          month: "January",
+          description:
+            "The first ArborTag prototype is successfully tested, signaling a major product milestone for NatureMark Systems.",
+        },
+        {
+          year: "2024",
+          month: "February",
+          description:
+            "Official launch of ArborTag, focusing on carbon sequestration and carbon credit verification, at an event supported by DST-TEC, IIC and NUCSER.",
+        },
+        {
+          month:
+            "NatureMark Systems shifts its strategy, deciding to offer a one-stop solution for carbon reporting and sustainability services.",
+          description:
+            "Introduces key services such as Carbon Credit Consultation,VERRA Registration, BRSR Reporting and CCTS Reporting.",
+        },
+        {
+          month:"Aims to help corporates with comprehensive sustainability and carbon reporting solutions, leveraging their advanced technology and expert team."
+        }
+      ],
     },
     Future: {
-      image: "/images/carbon-trading-services.gif",
-      year: "2024",
-      month: "Mid",
-      description:
-        "Expansion of NatureMark Systems' platform, integrating advanced analytics and emerging technologies like AI for enhancing corporate sustainability reporting.",
+      image: "/images/carbon-trading-services.GIF",
+      details: [
+        {
+          year: "2024",
+          month: "Mid",
+          description:
+            "Expansion of NatureMark Systems' platform, integrating advanced analytics and emerging technologies like AI for enhancing corporate sustainability reporting.",
+        },
+      ],
     },
   };
 
   const phases = Object.keys(phaseDetails);
 
-  // Memoized function to prevent unnecessary re-renders
   const handlePhaseChange = useCallback((phase) => {
     setSelectedPhase(phase);
+    setDescriptionIndex(0);
   }, []);
+
+  const handleNextDescription = () => {
+    setDescriptionIndex(
+      (prevIndex) =>
+        (prevIndex + 1) % phaseDetails[selectedPhase].details.length
+    );
+  };
+
+  const handlePrevDescription = () => {
+    setDescriptionIndex((prevIndex) =>
+      prevIndex === 0
+        ? phaseDetails[selectedPhase].details.length - 1
+        : prevIndex - 1
+    );
+  };
 
   return (
     <>
@@ -63,10 +128,8 @@ export default function About() {
             </article>
           ))}
         </div>
-
-        {/* History Section */}
         <article className="flex flex-col items-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl mt-4 mb-4 md:mb-6 font-black underline underline-offset-8 decoration-orange-500 text-[#102F17] text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl mt-4 mb-4 font-black underline underline-offset-8 decoration-orange-500 text-[#102F17] text-center">
             History
           </h2>
 
@@ -97,22 +160,33 @@ export default function About() {
               <Image
                 src={phaseDetails[selectedPhase].image}
                 alt={`${selectedPhase} phase`}
-                width={1920} 
+                width={1920}
                 height={1080}
                 unoptimized
-                className="w-full h-48 md:h-64 object-cover rounded-xl transition-all duration-300 group-hover:opacity-50"
-                priority={selectedPhase === "Ideation"} 
+                className="w-full h-48 md:h-64 object-cover rounded-xl transition-all duration-300"
+                priority={selectedPhase === "Ideation"}
               />
-              <div className="absolute inset-0 flex flex-col bg-black/70 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
+              <div className="relative inset-0 flex flex-col bg-black/70 items-center justify-center p-4 md:p-6 ">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2 text-center">
-                  {phaseDetails[selectedPhase].year}
+                  {phaseDetails[selectedPhase].details[descriptionIndex].year}
                 </h3>
                 <p className="text-white text-sm md:text-base text-center mb-2 md:mb-4">
-                  {phaseDetails[selectedPhase].month}
+                  {phaseDetails[selectedPhase].details[descriptionIndex].month}
                 </p>
-                <div className="text-white text-xs md:text-sm text-center leading-tight md:leading-normal">
-                  {phaseDetails[selectedPhase].description}
+                <GoChevronLeft
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white cursor-pointer text-2xl md:text-3xl"
+                  onClick={handlePrevDescription}
+                />
+                <div className="text-white text-xs md:text-sm text-center leading-tight md:leading-normal mx-8">
+                  {
+                    phaseDetails[selectedPhase].details[descriptionIndex]
+                      .description
+                  }
                 </div>
+                <GoChevronRight
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white cursor-pointer text-2xl md:text-3xl"
+                  onClick={handleNextDescription}
+                />
               </div>
             </div>
           </div>

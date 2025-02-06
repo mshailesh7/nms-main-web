@@ -8,9 +8,6 @@ export default function Page() {
     <>
     <title>Contact Us</title>
     <div className="p-6 navbar-md:p-10 flex flex-col items-center justify-center">
-      <h2 className="text-4xl navbar-md:text-5xl mt-4 mb-4 font-black underline underline-offset-8 decoration-orange-500 text-[#102F17] text-center">
-        Contact Us
-      </h2>
 
       <div className="flex mt-4 flex-col navbar-md:flex-row navbar-md:gap-10 w-full">
         {/* Left Section: Connect With Us and FAQ */}

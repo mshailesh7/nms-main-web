@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "../components/ui/button";
 import Link from "next/link"; 
 import Image from "next/image"; 
 
@@ -8,7 +7,7 @@ export default function Services() {
   const services = [
     {
       title: "ESG Reporting",
-      icon: "/images/esg-services.GIF",
+      icon: "/images/esg-services.gif",
       startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/esg-reporting", 
