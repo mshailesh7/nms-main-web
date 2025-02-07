@@ -40,7 +40,7 @@ html {
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/fonts/Gilroy-Semibold.ttf') format('truetype');
+  src: url('/fonts/Gilroy-SemiBold.ttf') format('truetype');
   font-weight: 600; /* SemiBold */
   font-style: normal;
 }

@@ -27,6 +27,19 @@ export default function RootLayout({ children }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
+  useEffect(() => {
+    const link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      const newLink = document.createElement("link");
+      newLink.rel = "icon";
+      newLink.href = "/nms-logo-navbar.ico"; // Set the favicon path
+      document.head.appendChild(newLink);
+    } else {
+      link.href = "/nms-logo-navbar.ico"; // Update if it already exists
+    }
+  }, []);
+  
+
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#F1F1F1] flex flex-col scroll-smooth">

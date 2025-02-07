@@ -8,21 +8,18 @@ export default function Services() {
     {
       title: "ESG Reporting",
       icon: "/images/esg-services.gif",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/esg-reporting", 
     },
     {
       title: "GHG Reporting",
       icon: "/images/ghg-services.GIF",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/ghg-reporting", 
     },
     {
       title: "Carbon Credit",
       icon: "/images/carbon-credit-services.GIF",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
       link: "/services/carbon-credit", 
     },
@@ -70,23 +67,15 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                {/* Start Journey Link */}
-                <Link
-                  href={service.link}
-                  className="text-sm mt-10 font-medium underline hover:text-orange-500"
-                >
-                  {service.startJourneyText}
-                </Link>
-
                 {/* Conditional Rendering for Carbon Trading */}
                 {service.title === "Carbon Trading" ? (
-                  <p className="w-full bg-gray-200 text-gray-600 px-6 py-1 rounded-lg font-bold mt-7">
+                  <p className="w-full bg-gray-200 text-gray-600 px-6 py-1 rounded-lg font-bold mt-10">
                     Coming Soon...
                   </p>
                 ) : (
                   <Link
                     href={service.link}
-                    className="w-full bg-green-900 text-white hover:bg-green-500 px-6 py-1 rounded-lg font-bold transition-all duration-300 mt-2"
+                    className="w-full bg-green-900 text-white hover:bg-green-500 px-6 py-1 rounded-lg font-bold transition-all duration-300 mt-10"
                   >
                     {service.buyServiceText} →
                   </Link>

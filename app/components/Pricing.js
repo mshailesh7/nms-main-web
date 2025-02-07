@@ -74,7 +74,7 @@ export default function Pricing() {
               <div
                 className={`${plan.color} text-white p-6 py-10 rounded-t-lg`}
               >
-                <h2 className="text-xl font-semibold">{plan.title}</h2>
+                <h2 className="text-xl font-semibold ">{plan.title}</h2>
               </div>
               {/* Features */}
               <div className="p-6 flex-grow">
@@ -104,7 +104,7 @@ export default function Pricing() {
               <div className="px-6 pb-6">
                 <Link href="/contact" passHref>
                   <button
-                    className={`bg-[#003F31] text-white py-2 w-full rounded-lg hover:bg-green-700 font-semibold transition duration-300`}
+                    className={`bg-[#003F31] text-white py-2 w-full rounded-lg hover:bg-green-700 font-semibold tracking-wide transition duration-300`}
                   >
                     {plan.buttonText}
                   </button>
