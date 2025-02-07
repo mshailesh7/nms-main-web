@@ -1,37 +1,33 @@
 "use client";
 
-import { Button } from "../components/ui/button";
-import Link from "next/link"; 
-import Image from "next/image"; 
+import Link from "next/link";
+import Image from "next/image";
 
 export default function ServiceHomePage() {
   const services = [
     {
       title: "ESG Reporting",
       icon: "/images/esg-services.gif",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
-      link: "/services/esg-reporting", 
+      link: "/services/esg-reporting",
     },
     {
       title: "GHG Reporting",
       icon: "/images/ghg-services.GIF",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
-      link: "/services/ghg-reporting", 
+      link: "/services/ghg-reporting",
     },
     {
       title: "Carbon Credit",
       icon: "/images/carbon-credit-services.GIF",
-      startJourneyText: "Start Journey",
       buyServiceText: "Explore",
-      link: "/services/carbon-credit", 
+      link: "/services/carbon-credit",
     },
     {
       title: "Carbon Trading",
       icon: "/images/carbon-trading-services.GIF",
       buyServiceText: "Coming Soon...",
-      link: "/services", 
+      link: "/services",
     },
   ];
 
@@ -56,12 +52,12 @@ export default function ServiceHomePage() {
                   <Image
                     src={service.icon}
                     alt={`${service.title} Icon`}
-                    width={1920} 
-                    height={1080} 
+                    width={1920}
+                    height={1080}
                     className="w-full h-full object-contain rounded-lg"
                     priority={index < 2}
-                    unoptimized 
-                    loading={index >= 2 ? "lazy" : "eager"} 
+                    unoptimized
+                    loading={index >= 2 ? "lazy" : "eager"}
                   />
                 </div>
 
@@ -70,25 +66,22 @@ export default function ServiceHomePage() {
                   {service.title}
                 </h3>
 
-                {/* Start Journey Link */}
-                <Link
-                  href={service.link}
-                  className="text-sm mt-10 font-medium underline hover:text-orange-500"
-                >
-                  {service.startJourneyText}
-                </Link>
-
                 {/* Conditional Rendering for Carbon Trading */}
                 {service.title === "Carbon Trading" ? (
-                  <p className="w-full bg-gray-200 text-gray-600 px-6 py-1 rounded-lg font-bold mt-7">
+                  <p className="w-full bg-gray-200 text-gray-600 px-6 py-1 rounded-lg font-bold mt-10">
                     Coming Soon...
                   </p>
                 ) : (
                   <Link
                     href={service.link}
-                    className="w-full bg-green-900 text-white hover:bg-green-500 px-6 py-1 rounded-lg font-bold transition-all duration-300 mt-2"
+                    className="w-full mt-10 bg-green-900 text-white hover:bg-green-700 px-6 py-1 rounded-lg font-bold transition-all duration-300 group"
                   >
-                    {service.buyServiceText} →
+                    <span className="inline-flex items-center">
+                      {service.buyServiceText}
+                      <span className="ml-2 group-hover:animate-bounce-right">
+                        →
+                      </span>
+                    </span>
                   </Link>
                 )}
               </div>
@@ -96,6 +89,22 @@ export default function ServiceHomePage() {
           </div>
         </div>
       </div>
+
+      {/* Add CSS for the animation */}
+      <style jsx>{`
+        @keyframes bounce-right {
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(4px);
+          }
+        }
+        .group-hover\:animate-bounce-right {
+          animation: bounce-right 0.5s infinite;
+        }
+      `}</style>
     </>
   );
 }

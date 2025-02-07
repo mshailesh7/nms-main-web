@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Typewriter } from "react-simple-typewriter";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -29,11 +30,14 @@ export default function Hero() {
             />
           </h1>
           <p className="mt-2 content-item text-[#102F17] text-[clamp(0.7rem,2vw,1.2rem)] leading-[1.2] break-words max-w-[90%] md:max-w-[75%]">
-            We provide eco-friendly engineering solutions for sustainable development
+            We provide eco-friendly engineering solutions for sustainable
+            development
           </p>
-          <Button className="bg-orange-500 content-item text-white mt-4 py-3 px-6 text-[clamp(0.875rem,1.5vw,1.25rem)] rounded-lg">
-            Go Net Zero!
-          </Button>
+          <Link href="/contact" passHref>
+            <Button className="bg-orange-500 content-item text-white mt-4 py-3 px-6 text-[clamp(0.875rem,1.5vw,1.25rem)] rounded-lg hover:bg-orange-600 transition-colors duration-300">
+              Go Net Zero!
+            </Button>
+          </Link>
         </div>
       </div>
     </main>

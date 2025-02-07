@@ -6,7 +6,7 @@ import { FaLeaf } from "react-icons/fa";
 const plans = [
   {
     title: "Basic Tier: ESG Essentials",
-    price: "$999",
+    price: "****",
     features: [
       "ESG Reporting (BRSR for Indian companies)",
       "Basic GHG Protocol carbon footprint analysis",
@@ -15,11 +15,11 @@ const plans = [
       "Basic multi-national ESG reporting support",
     ],
     buttonText: "Buy Basic",
-    color: "bg-[#20732C]", 
+    color: "bg-[#20732C]",
   },
   {
     title: "Standard Tier: Sustainability Growth",
-    price: "$2499",
+    price: "****",
     features: [
       "All Basic Tier services",
       "Comprehensive GRI Reporting",
@@ -30,11 +30,11 @@ const plans = [
       "Multi-national ESG reporting and compliance management for up to 3 countries",
     ],
     buttonText: "Buy Standard",
-    color: "bg-[#295922]", 
+    color: "bg-[#295922]",
   },
   {
     title: "Premium Tier: Sustainability Leadership",
-    price: "$4999",
+    price: "****",
     features: [
       "All Standard Tier services",
       "Verra Project Registration and Consultation",
@@ -48,7 +48,7 @@ const plans = [
       "Impact assessment and reporting for global operations",
     ],
     buttonText: "Buy Premium",
-    color: "bg-[#003F31]", 
+    color: "bg-[#003F31]",
   },
 ];
 
@@ -71,25 +71,30 @@ export default function Pricing() {
               className="bg-white rounded-lg shadow-lg w-full navbar-md:w-1/3 flex flex-col"
             >
               {/* Tier Header with Dynamic Colors */}
-              <div className={`${plan.color} text-white p-6 rounded-t-lg`}>
+              <div
+                className={`${plan.color} text-white p-6 py-10 rounded-t-lg`}
+              >
                 <h2 className="text-xl font-semibold">{plan.title}</h2>
-                <p className="text-3xl font-semibold mt-4">
-                  {plan.price}
-                  <span className="text-lg font-semibold">/month</span>
-                </p>
               </div>
               {/* Features */}
               <div className="p-6 flex-grow">
                 <ul className="text-gray-700">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex font-medium items-center mb-2">
+                    <li
+                      key={index}
+                      className="flex font-medium items-center mb-2"
+                    >
+                      {/* Fixed size for FaLeaf with debugging styles */}
                       <FaLeaf
+                        className="leaf-icon"
                         style={{
                           color: "#003F31",
                           marginRight: "8px",
-                          marginTop: "0",
+                          width: "14px",
+                          height: "14px",
+                          flexShrink: 0,
                         }}
-                      />{" "}
+                      />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -97,11 +102,13 @@ export default function Pricing() {
               </div>
               {/* Button at the bottom */}
               <div className="px-6 pb-6">
-                <button
-                  className={`bg-[#003F31] text-white py-2 w-full rounded-lg hover:opacity-80 font-semibold transition duration-300`}
-                >
-                  {plan.buttonText}
-                </button>
+                <Link href="/contact" passHref>
+                  <button
+                    className={`bg-[#003F31] text-white py-2 w-full rounded-lg hover:bg-green-700 font-semibold transition duration-300`}
+                  >
+                    {plan.buttonText}
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -115,7 +122,8 @@ export default function Pricing() {
             Get In Touch With Us
           </h2>
           <p className="text-xl text-white mb-8 text-center max-w-lg">
-            Have any questions or need assistance? Our team is here to help you take the next step in your sustainability journey.
+            Have any questions or need assistance? Our team is here to help you
+            take the next step in your sustainability journey.
           </p>
           <Link
             href="/contact"
@@ -128,6 +136,15 @@ export default function Pricing() {
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-white opacity-30 rounded-t-full"></div>
         </div>
       </div>
+
+      {/* Add CSS for consistent leaf icon size */}
+      <style jsx>{`
+        .leaf-icon {
+          width: 16px;
+          height: 16px;
+          flex-shrink: 0; /* Prevent the icon from shrinking */
+        }
+      `}</style>
     </div>
   );
 }
