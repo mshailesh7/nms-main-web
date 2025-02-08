@@ -199,12 +199,6 @@ export default function Navbar({ currentPath }) {
               >
                 <Briefcase className="mr-2" /> Services
               </Link>
-              <a
-                href="#"
-                className="flex items-center text-lg text-[#102F17] hover:text-orange-600"
-              >
-                <Newspaper className="mr-2" /> News & Blogs
-              </a>
               <Link
                 href="/about"
                 className={`flex items-center text-lg ${
@@ -227,7 +221,7 @@ export default function Navbar({ currentPath }) {
               </Link>
               <Link
                 href="/sustain360"
-                className={` flex items-center gap-1 ${
+                className={` flex items-center text-lg gap-1 ${
                   isActive("/sustain360")
                     ? "text-orange-600 font-bold"
                     : "text-[#102F17]"

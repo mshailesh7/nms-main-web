@@ -33,11 +33,11 @@ const scrollToServicesMobile = () => {
 };
 
 export default function Footer() {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleHomeClick = (e) => {
-    e.preventDefault(); 
-    router.push("/"); 
+    e.preventDefault();
+    router.push("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -47,30 +47,63 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Navigation Links */}
           <div>
-            <h3 className="font-semibold text-[#102F17] text-lg mb-4">Navigation</h3>
+            <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+              Navigation
+            </h3>
             <ul className="space-y-2">
               <li className="hover:text-green-600 transition-colors">
-                <a href="/" onClick={handleHomeClick}>Home</a>
+                <a href="/" onClick={handleHomeClick}>
+                  Home
+                </a>
               </li>
               <li className="hover:text-green-600 transition-colors">
-                <a href="/services" onClick={(e) => { e.preventDefault(); scrollToServicesDesktop(); }}>Services</a>
+                <a
+                  href="/services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToServicesDesktop();
+                  }}
+                >
+                  Services
+                </a>
               </li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/contact">Write Us</Link></li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/about">About Us</Link></li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/contact">Connect With Us</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/about">About Us</Link>
+              </li>
             </ul>
           </div>
 
           {/* Services Links */}
           <div>
-            <h3 className="font-semibold text-[#102F17] text-lg mb-4">Services</h3>
+            <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+              Services
+            </h3>
             <ul className="space-y-2">
-              <li className="hover:text-green-600 transition-colors"><Link href="/services/esg-reporting">ESG Reporting</Link></li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/services/ghg-reporting">GHG Reporting</Link></li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/services/carbon-credit">Carbon Credit</Link></li>
               <li className="hover:text-green-600 transition-colors">
-                <Link href="/sustain360" className="font-bold text-red-500 flex items-center gap-1 justify-center md:justify-start">
+                <Link href="/services/esg-reporting">ESG Reporting</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/services/ghg-reporting">GHG Reporting</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/services/carbon-credit">Carbon Credit</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link
+                  href="/sustain360"
+                  className="font-bold text-red-500 flex items-center gap-1 justify-center md:justify-start"
+                >
                   Sustain360
-                  <motion.span className="text-xs text-white bg-red-500 -mt-2 px-2 py-0.5 rounded-md font-semibold" animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1.1, repeat: Infinity }}>Beta</motion.span>
+                  <motion.span
+                    className="text-xs text-white bg-red-500 -mt-2 px-2 py-0.5 rounded-md font-semibold"
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 1.1, repeat: Infinity }}
+                  >
+                    Beta
+                  </motion.span>
                 </Link>
               </li>
             </ul>
@@ -80,22 +113,36 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-[#102F17] text-lg mb-4">Legal</h3>
             <ul className="space-y-2">
-              <li className="hover:text-green-600 transition-colors"><Link href="/terms-of-service">Term Of Services</Link></li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/privacy-policy">Privacy Policy</Link></li>
-              <li className="hover:text-green-600 transition-colors"><Link href="/licensed-regulation">Licensed & Regulation</Link></li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/terms-of-service">Term Of Services</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/privacy-policy">Privacy Policy</Link>
+              </li>
+              <li className="hover:text-green-600 transition-colors">
+                <Link href="/licensed-regulation">Licensed & Regulation</Link>
+              </li>
             </ul>
           </div>
 
           {/* Contact Information */}
           <div>
-            <h3 className="font-semibold text-[#102F17] text-lg mb-4">Contact</h3>
+            <h3 className="font-semibold text-[#102F17] text-lg mb-4">
+              Contact
+            </h3>
             <div className="space-y-2">
               <p>+91 9833363372</p>
               <p>naturemarksystems@gmail.com</p>
               <div className="flex gap-4 mt-4 justify-center md:justify-start">
-                <a href="#" className="hover:text-green-600"><FaInstagram size={20} /></a>
-                <a href="#" className="hover:text-green-600"><FaTwitter size={20} /></a>
-                <a href="#" className="hover:text-green-600"><FaLinkedinIn size={20} /></a>
+                <Link
+                  href="http://www.instagram.com/naturemarksystems"
+                  className="hover:text-green-600"
+                >
+                  <FaInstagram size={20} />
+                </Link>
+                <Link href="http://linkedin.com/company/nature-mark-sys" className="hover:text-green-600">
+                  <FaLinkedinIn size={20} />
+                </Link>
               </div>
             </div>
           </div>
