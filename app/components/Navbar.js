@@ -94,12 +94,6 @@ export default function Navbar({ currentPath }) {
           >
             Services
           </Link>
-          <a
-            href="#"
-            className="transition-all hover:font-bold hover:scale-110"
-          >
-            News & Blogs
-          </a>
           <Link
             href="/about"
             className={`transition-all hover:font-bold hover:scale-110 ${isActive(
@@ -233,13 +227,20 @@ export default function Navbar({ currentPath }) {
               </Link>
               <Link
                 href="/sustain360"
-                className={`flex items-center text-lg ${
+                className={` flex items-center gap-1 ${
                   isActive("/sustain360")
                     ? "text-orange-600 font-bold"
                     : "text-[#102F17]"
                 }`}
               >
                 <TreePalmIcon className="mr-2" /> Sustain360
+                <motion.span
+                  className="text-xs text-white bg-red-500 -mt-2 px-2 py-0.5 rounded-md font-semibold"
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 1.1, repeat: Infinity }}
+                >
+                  Beta
+                </motion.span>
               </Link>
             </div>
           </div>
