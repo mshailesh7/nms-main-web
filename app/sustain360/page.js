@@ -1,9 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import html2pdf from "html2pdf.js";
-import { marked } from "marked";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for client-side only libraries
+const Html2pdf = dynamic(() => import("html2pdf.js"), { ssr: false });
+const Marked = dynamic(() => import("marked").then(mod => mod.marked), { ssr: false });
 
 const Sustain360 = () => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -64,27 +67,44 @@ const Sustain360 = () => {
       return;
     }
 
-    const options = {
-      margin: 10,
-      filename: "generated_report.pdf",
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    };
+    import("html2pdf.js").then((html2pdfModule) => {
+      const html2pdf = html2pdfModule.default || html2pdfModule;
+      
+      const options = {
+        margin: 10,
+        filename: "generated_report.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
 
-    html2pdf().from(output).set(options).save();
+      html2pdf().from(output).set(options).save();
+    }).catch(err => {
+      console.error("Error loading html2pdf:", err);
+      alert("Error generating PDF. Please try again.");
+    });
   };
 
   const handleJoinWaitlist = () => {
     window.location.href = "https://forms.gle/1jjqzyGdBzMFxikU7";
   };
 
+  const formatOutput = (outputText) => {
+    // Only use marked in the browser
+    if (typeof window !== 'undefined' && Marked) {
+      return `<div class='text-left'>${Marked(outputText)}</div>`;
+    }
+    return `<div class='text-left'>${outputText}</div>`;
+  };
+
   return (
     <>
       <title>Sustain360</title>
+      
+      {/* Main content area (excluding navbar and footer) */}
       <div className="relative">
-        {/* Main content (blurred when waitlist overlay is active) */}
-        <div className={`${showWaitlist ? "blur-md" : ""} transition-all duration-300`}>
+        {/* The actual content (only this gets blurred) */}
+        <div className={`${showWaitlist ? "blur-md pointer-events-none" : ""} transition-all duration-300`}>
           <div className="flex flex-col md:flex-row bg-gray-100 p-4 md:p-8 gap-4">
             {/* Left Section (Fixed, Stays in Place) */}
             <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg p-6 flex flex-col gap-4 md:sticky top-0 ">
@@ -193,10 +213,10 @@ const Sustain360 = () => {
           </div>
         </div>
 
-        {/* Waitlist overlay */}
+        {/* Waitlist overlay - positioned relative to this content section only */}
         {showWaitlist && (
-          <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-white shadow-2xl rounded-lg p-8 max-w-md text-center">
+          <div className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
+            <div className="bg-white shadow-2xl rounded-lg p-8 max-w-md text-center pointer-events-auto">
               <h2 className="text-3xl font-bold text-green-900 mb-4">Coming Soon!</h2>
               <p className="text-lg mb-6">
                 Sustain360 is currently in development. Join our waitlist to be notified when we launch.
@@ -214,9 +234,5 @@ const Sustain360 = () => {
     </>
   );
 };
-
-function formatOutput(output) {
-  return `<div class='text-left'>${marked(output)}</div>`;
-}
 
 export default Sustain360;
