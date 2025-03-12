@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-
 export default function GHGProtocol() {
   const overviewRef = useRef(null);
   const keyBenefitsRef = useRef(null);
@@ -33,9 +32,9 @@ export default function GHGProtocol() {
       icon: "/images/key-benefits-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Comprehensive Emissions Monitoring</li>
+          <li>Carbon Footprint Analysis</li>
+          <li>Supply Chain Optimization</li>
         </ul>
       ),
     },
@@ -46,9 +45,9 @@ export default function GHGProtocol() {
       icon: "/images/services-icon.svg",
       content: (
         <ul className="list-disc pl-6 mb-4">
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Automated Emissions Calculations</li>
+          <li>AI Insights for Emissions Reductions</li>
+          <li>Scope 3 Emissions Monitoring</li>
         </ul>
       ),
     },

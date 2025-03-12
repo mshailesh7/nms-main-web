@@ -78,7 +78,7 @@ export default function About() {
       image: "/images/carbon-trading-services.GIF",
       details: [
         {
-          year: "2024",
+          year: "2025",
           month: "Mid",
           description:
             "Expansion of NatureMark Systems' platform, integrating advanced analytics and emerging technologies like AI for enhancing corporate sustainability reporting.",

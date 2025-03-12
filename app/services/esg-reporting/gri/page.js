@@ -23,7 +23,7 @@ export default function GRI() {
       ref: overviewRef,
       icon: "/images/overview-icon.svg",
       content:
-        "The Greenhouse Gas (GHG) Protocol is the global standard for measuring, managing, and reporting greenhouse gas emissions. It provides comprehensive methodologies for businesses to track their emissions accurately.",
+        "The Global Reporting Initiative is the global standard for measuring, managing, and reporting greenhouse gas emissions. It provides comprehensive methodologies for businesses to track their emissions accurately.",
     },
     {
       id: "keyBenefits",
@@ -67,7 +67,7 @@ export default function GRI() {
               GRI
             </h1>
             <h2 className="text-xl md:text-2xl font-bold text-[#102F17] mt-4">
-              (The Green House Gas Protocol)
+              (Global Reporting Initiative)
             </h2>
             <p className="text-base md:text-xl font-medium text-[#102F17] mt-6">
               ESG REPORTING

@@ -354,23 +354,20 @@ import React, { useState, useEffect } from "react";
 import { marked } from "marked";
 import html2pdf from "html2pdf.js";
 
-const Chatbot = () => {
+const Sustain360 = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [selectedStandard, setSelectedStandard] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [isOutputGenerated, setIsOutputGenerated] = useState(false);
   const [hoveredStandard, setHoveredStandard] = useState(null);
-
-  const handleStandardHover = (standard) => {
-    setHoveredStandard(standard);
-  };
+  const [showWaitlist, setShowWaitlist] = useState(true);
 
   const standards = {
     GRI: {
       prompt:
         "Using the provided data, generate a GRI compliant report with material topics highlighted and interpret the data. Do not stop until the entire data is processed.",
-      logoSrc: "images/sustain360/gri-chat.svg",
+      logoSrc: "/images/sustain360/gri-chat.svg",
     },
     BRSR: {
       prompt:
@@ -614,4 +611,8 @@ const Chatbot = () => {
   );
 };
 
-export default Chatbot;
+function formatOutput(output) {
+  return `<div class='text-left'>${marked(output)}</div>`;
+}
+
+export default Sustain360;
