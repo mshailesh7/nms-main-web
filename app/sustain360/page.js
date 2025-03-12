@@ -101,8 +101,8 @@ const Sustain360 = () => {
     <>
       <title>Sustain360</title>
       
-      {/* Main content area (excluding navbar and footer) */}
-      <div className="relative">
+      {/* Wrapper with position relative to contain the absolute positioned overlay */}
+      <div className="relative min-h-screen">
         {/* The actual content (only this gets blurred) */}
         <div className={`${showWaitlist ? "blur-md pointer-events-none" : ""} transition-all duration-300`}>
           <div className="flex flex-col md:flex-row bg-gray-100 p-4 md:p-8 gap-4">
@@ -213,9 +213,9 @@ const Sustain360 = () => {
           </div>
         </div>
 
-        {/* Waitlist overlay - positioned relative to this content section only */}
+        {/* Waitlist overlay - positioned absolute within the relative container */}
         {showWaitlist && (
-          <div className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center z-40">
             <div className="bg-white shadow-2xl rounded-lg p-8 max-w-md text-center pointer-events-auto">
               <h2 className="text-3xl font-bold text-green-900 mb-4">Coming Soon!</h2>
               <p className="text-lg mb-6">
