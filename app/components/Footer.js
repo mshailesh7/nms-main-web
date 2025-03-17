@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div>
+          {/* <div>
             <h3 className="font-semibold text-[#102F17] text-lg mb-4">Legal</h3>
             <ul className="space-y-2">
               <li className="hover:text-green-600 transition-colors">
@@ -123,7 +123,7 @@ export default function Footer() {
                 <Link href="/licensed-regulation">Licensed & Regulation</Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Information */}
           <div>
@@ -135,7 +135,7 @@ export default function Footer() {
               <p>naturemarksystems@gmail.com</p>
               <div className="flex gap-4 mt-4 justify-center md:justify-start">
                 <Link
-                  href="http://www.instagram.com/naturemarksystems"
+                  href="https://www.instagram.com/naturemarksystems/#"
                   className="hover:text-green-600"
                 >
                   <FaInstagram size={20} />
@@ -153,9 +153,9 @@ export default function Footer() {
       <div className="mt-8 pt-4 border-t border-gray-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <p className="text-gray-600 text-sm">
-            © 2023 Te-Owo All Rights Reserved.
+            © 2025 All Rights Reserved.
           </p>
-          <div className="flex gap-4 mt-4 md:mt-0">
+          {/* <div className="flex gap-4 mt-4 md:mt-0">
             <Link
               href="/terms"
               className="text-sm text-gray-600 hover:text-green-600"
@@ -168,7 +168,7 @@ export default function Footer() {
             >
               Policy Service
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
