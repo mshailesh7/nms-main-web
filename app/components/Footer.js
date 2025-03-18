@@ -50,7 +50,7 @@ export default function Footer() {
             <h3 className="font-semibold text-[#102F17] text-lg mb-4">
               Navigation
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 list-none p-0">
               <li className="hover:text-green-600 transition-colors">
                 <a href="/" onClick={handleHomeClick}>
                   Home
@@ -81,7 +81,7 @@ export default function Footer() {
             <h3 className="font-semibold text-[#102F17] text-lg mb-4">
               Services
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 list-none p-0">
               <li className="hover:text-green-600 transition-colors">
                 <Link href="/services/esg-reporting">ESG Reporting</Link>
               </li>
@@ -110,20 +110,20 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          {/* <div>
+          <div>
             <h3 className="font-semibold text-[#102F17] text-lg mb-4">Legal</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 list-none p-0">
               <li className="hover:text-green-600 transition-colors">
-                <Link href="/terms-of-service">Term Of Services</Link>
+                <Link href="/legal/terms-of-service">Term Of Services</Link>
               </li>
               <li className="hover:text-green-600 transition-colors">
-                <Link href="/privacy-policy">Privacy Policy</Link>
+                <Link href="/legal/privacy-policy">Privacy Policy</Link>
               </li>
-              <li className="hover:text-green-600 transition-colors">
+              {/* <li className="hover:text-green-600 transition-colors">
                 <Link href="/licensed-regulation">Licensed & Regulation</Link>
-              </li>
+              </li> */}
             </ul>
-          </div> */}
+          </div>
 
           {/* Contact Information */}
           <div>
